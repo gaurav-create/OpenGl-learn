@@ -33,17 +33,17 @@ unsigned int compileShader(unsigned int type,const string& src){
 
 unsigned int createShader(const string& vertexSrc,const string& fragmentSrc){
     unsigned int vs= compileShader(GL_VERTEX_SHADER,vertexSrc);
-    unsigned int fs = compileShader(GL_FRAGMENT_SHADER,fragmentSrc);
+    unsigned int gs = compileShader(GL_FRAGMENT_SHADER,fragmentSrc);
 
     unsigned int program = glCreateProgram();
     
     glAttachShader(program,vs);
-    glAttachShader(program,fs);
+    glAttachShader(program,gs);
 
     glLinkProgram(program);
 
     glDeleteShader(vs);
-    glDeleteShader(fs);
+    glDeleteShader(gs);
 
     return program;
 }
